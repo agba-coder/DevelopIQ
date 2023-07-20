@@ -1,0 +1,7 @@
+APERE STORE
+Apere store is a platform that provides a convenient and affordable online grocery shopping platform that offers fresh, locally-sourced food and a user-friendly shopping experience.
+
+Technology stacks will be needed and is vital in building Apere Store Web and Mobile for developing user-friendly, interactive and responsive softwares to satisfy our potientials and valued customers.
+
+ii. Front-end Technologies
+    Frontend Development is a very important aspect of software Development Life Cycle (SDLC)

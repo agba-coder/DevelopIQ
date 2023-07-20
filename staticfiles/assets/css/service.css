@@ -1,0 +1,15 @@
+.ecommerceImg img{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* custom  */
+.Custom h2{
+   text-align: center;
+   padding: 14px 0;
+}
+
+.Custom h3{
+    text-align: center;
+    padding: 14px 0;
+}

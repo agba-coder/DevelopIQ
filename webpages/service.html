@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Services {% endblock %}
+
+{% block content %}
+
+  <main id="main">
+     <!-- ======= Breadcrumbs ======= -->
+   <div class="breadcrumbs-1 d-flex align-items-center" style="background-image: url('{% static '/assets/img/service.webp' %}');">
+    <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
+
+      <h2>Services</h2>
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li>Services</li>
+      </ol>
+
+    </div>
+  </div><!-- End Breadcrumbs -->
+
+
+  <!-- ======= Services Section ======= -->
+  <section id="services" class="services">
+    <div class="container">
+
+      <div class="section-title" data-aos="fade-up">
+        <h2>Services</h2>
+        <p>We work with you to achieve your goals.</p>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+          <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+            <div class="icon"><i class="bx bxl-dribbble"></i></div>
+            <h4 class="title"><a href="/web development.html">Web Development</a></h4>
+            <p class="description">Make your presence felt online with website development services from DevelopIQ Technologies.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+          <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
+            <div class="icon"><i class="bx bx-file"></i></div>
+            <h4 class="title"><a href="/mobile application.html">Mobile Application Development</a></h4>
+            <p class="description">Make your web applications services from DevelopIQ Technologies</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+          <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
+            <div class="icon"><i class="bx bx-tachometer"></i></div>
+            <h4 class="title"><a href="/Branding and Publicity.html">Branding and Publicity</a></h4>
+            <p class="description">Multiply the sales of your business with the help of an E-commerce website.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+          <div class="icon-box" data-aos="fade-up" data-aos-delay="400">
+            <div class="icon"><i class="bx bx-world"></i></div>
+            <h4 class="title"><a href="">Maintenance</a></h4>
+            <p class="description">Take your business to the next level with Logo & Identity services from DevelopIQ Technologies.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section><!-- End Services Section -->
+  
+  
+  </main>
+
+{% endblock %}
