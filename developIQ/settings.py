@@ -48,6 +48,16 @@ INSTALLED_APPS = [
     'corsheaders',
 ]
 
+
+# Cookies, Users Sessions
+SESSION_COOKIE_SECURE = True
+SECURE_SSL_REDIRECT = True
+SECURE_HSTS_SECONDS = "2,592,000"
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+
+CSRF_COOKIE_SECURE = True
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -109,6 +119,13 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# managers
+MANAGERS = [
+    ("Akande Daniel", "developiq01@gmail.com"),
+    ("Favour Bamgboye", "hi.agbacoder@gmail.com")
+]
+
+ADIMNS = MANAGERS
 
 # email 
 #EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
