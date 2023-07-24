@@ -27,6 +27,17 @@
           {% csrf_token %}
           <!-- Form -->
           <div class="form1Flex">
+            {% if messages %}
+              {% for message in messages %}
+              <div class="alert alert-{{ message.tags }}" role="alert">
+                <h4 class="alert-heading">DevelopIQ</h4>
+                <p>{{message}}.</p>
+                <hr>
+                <p class="mb-0"><b>DevelopIQ Team.</b></p>
+              </div>
+              {% endfor %}
+            {% endif %}
+            
             <!-- flex 1 -->
             <div class="formFlex_i">
               <label for="name">Name</label>
@@ -44,7 +55,7 @@
             <!-- flex 1 -->
             <div class="formFlex_i">
               <label for="name">Contact</label>
-              <input type="number" placeholder="Enter Contact Number " name="contact" required>
+              <input type="tel" placeholder="Enter Contact Number " max_length="14" name="contact" required>
             </div>
             <!-- flex 2 -->
             <div class="formFlex_ii">
@@ -70,7 +81,7 @@
             <!-- flex 2 -->
             <div class="formFlex_ii form2">
              <label for="number">WhatsApp Number</label>
-             <input type="number" name="whatsAppNumber" id=""  placeholder="Enter Whatsapp Number" required>
+             <input type="tel" max_length="14"max_length="14" name="whatsAppNumber" id=""  placeholder="Enter Whatsapp Number" required>
             </div>
           </div>
 

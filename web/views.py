@@ -104,7 +104,7 @@ def getQuote(request):
         quote.save()
 
         # message alert and redirect user back to the page
-        messages.success(request, "Your Request has been received!")
+        messages.success(request, "Your request has been received and processed successfully. Please check your mail for more info")
         return redirect("getQuote")
 
 
