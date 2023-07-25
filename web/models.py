@@ -37,9 +37,24 @@ class Quote(models.Model):
 
 	def __str__(self):
 		return f"{self.company_name}'s Quote"
-
-
 	class Meta:
 		ordering = ('-date_created',)
 		verbose_name_plural = 'Quotes'
+  
+  
+class Mail(models.Model):
+    name = models.CharField(max_length=20)
+    email = models.EmailField()
+    subject = models.CharField(max_length=40)
+    message = models.TextField()
+    date_sent = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return f"{self.name} sent you a message"
+    
+    class Meta:
+        managed = True
+        verbose_name = 'Mail'
+        verbose_name_plural = 'Mails'
+	
 

@@ -33,11 +33,6 @@
         <div class="section-title" data-aos="fade-up">
           <h2>Contact Us</h2>
         </div>
-        <!-- <h1>TinyMCE Quick Start Guide</h1>
-    <form method="post">
-      <textarea id="mytextarea">Hello, World!</textarea>
-    </form> -->
-
         <div class="row">
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
@@ -79,6 +74,16 @@
           <div class="col-lg-5 col-md-12" data-aos="fade-up" data-aos-delay="300">
             <form action="{% url 'contact' %}" method="post" role="form" class="php-email-form">
               {% csrf_token %}
+              {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}" role="alert">
+                  <h4 class="alert-heading">DevelopIQ</h4>
+                  <p>{{message}}.</p>
+                  <hr>
+                  <p class="mb-0"><b>DevelopIQ Team.</b></p>
+                </div>
+                {% endfor %}
+              {% endif %}
               <div class="form-group">
                 <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
               </div>

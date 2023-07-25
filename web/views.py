@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 
 from django.core.mail import send_mail, BadHeaderError
 
-from .models import Testimonial, Quote
+from .models import Testimonial, Quote, Mail
 
 # Create your views here.
 
@@ -48,12 +48,16 @@ def contact(request):
         subject = "✅ Hi DevelopIQ, you've a new message from your Website!"
         message = f"Name: {name}\nEmail: {email}\nMessage: {message}"
         print(message)
-        Email_HOST = settings.EMAIL_HOST_USER
+        from_email = settings.EMAIL_HOST_USER
+        receipient = [email]
+        
+        mail = Mail.objects.create(name=name, email=email, subject=subject, message=message)
+        mail.save()
 
         try:
-            send_mail(subject, message, email, ["developiq01@gmail.com"])
+            send_mail(subject, message, from_email, receipient, fail_silently=False)
             print("sent")
-            messages.success(request, "Your Message Has Been Sent ✅!")
+            messages.success(request, "Your Message Has Been Receieved ✅!")
             return redirect("contact")
 
         except BadHeaderError:
@@ -86,22 +90,33 @@ def getQuote(request):
         ad = request.POST["ad"]
         print(ad)
 
-        quote = Quote.objects.create(name=name,
-            email=email,
-            contact=contact,
-            country=country,
-            approximated_budget=budget,
-            whatsapp_number=whatsAppNumber,
-            details=details,
-            service_type=service,
-            start_date=startDate,
-            company_name=company_name,
-            postion=postion,
-            how_did_you_know_us=ad,
-            file=file)
+        if Quote.objects.filter(email=email).exist():
+            print('Records already exist')
+            messages.error(request, 'Records registered with that email already exist!')
+            return render(request, 'quote.html')
 
-        # save data to database
-        quote.save()
+        elif Quote.objects.filter(company_name=company_name).exist():
+            print('Records already exist')
+            messages.error(request, 'Records registered with that company name already exist!')
+            return render(request, 'quote.html')
+
+        else:
+            quote = Quote.objects.create(name=name,
+                email=email,
+                contact=contact,
+                country=country,
+                approximated_budget=budget,
+                whatsapp_number=whatsAppNumber,
+                details=details,
+                service_type=service,
+                start_date=startDate,
+                company_name=company_name,
+                postion=postion,
+                how_did_you_know_us=ad,
+                file=file)
+
+            # save data to database
+            quote.save()
 
         # message alert and redirect user back to the page
         messages.success(request, "Your request has been received and processed successfully. Please check your mail for more info")
