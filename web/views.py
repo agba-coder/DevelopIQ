@@ -45,14 +45,14 @@ def contact(request):
         subject = request.POST["email"]
         message = request.POST["message"]
 
+        mail = Mail.objects.create(name=name, email=email, subject=subject, message=message)
+        mail.save()
+        
         subject = "✅ Hi DevelopIQ, you've a new message from your Website!"
         message = f"Name: {name}\nEmail: {email}\nMessage: {message}"
         print(message)
         from_email = settings.EMAIL_HOST_USER
         receipient = [email]
-        
-        mail = Mail.objects.create(name=name, email=email, subject=subject, message=message)
-        mail.save()
 
         try:
             send_mail(subject, message, from_email, receipient, fail_silently=False)
@@ -90,12 +90,12 @@ def getQuote(request):
         ad = request.POST["ad"]
         print(ad)
 
-        if Quote.objects.filter(email=email).exist():
+        if Quote.objects.filter(email=email).exists():
             print('Records already exist')
             messages.error(request, 'Records registered with that email already exist!')
             return render(request, 'quote.html')
 
-        elif Quote.objects.filter(company_name=company_name).exist():
+        elif Quote.objects.filter(company_name=company_name).exists():
             print('Records already exist')
             messages.error(request, 'Records registered with that company name already exist!')
             return render(request, 'quote.html')
